@@ -10,7 +10,6 @@ import Foundation
 
 class RickAndMortyApiManager {
     private init(){
-        
     }
     
     static let manager = RickAndMortyApiManager()

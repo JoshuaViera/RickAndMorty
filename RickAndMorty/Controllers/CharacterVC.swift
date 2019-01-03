@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  CharacterVC.swift
 //  RickAndMorty
 //
-//  Created by Joshua Viera on 1/2/19.
+//  Created by Joshua Viera on 1/3/19.
 //  Copyright © 2019 Joshua Viera. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     private var rickAndMortyCharacters = [RickAndMortyChar](){
         didSet{
-                self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Characters-->
         <scene sceneID="sLq-q3-eQU">
             <objects>
                 <viewController id="zi5-o0-4Ad" customClass="ViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,6 +44,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="pFm-bQ-Hzf" kind="presentation" id="1eM-bQ-0af"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -57,30 +60,122 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Js9-p6-NJG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="bVO-fc-vJv"/>
+                    <tabBarItem key="tabBarItem" title="Characters" id="bVO-fc-vJv"/>
                     <connections>
                         <outlet property="tableView" destination="ldk-A4-2Bf" id="DOV-dw-vHg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOL-7D-xyC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167" y="181"/>
+            <point key="canvasLocation" x="799" y="215"/>
         </scene>
-        <!--Item 1-->
+        <!--Character DetailVC-->
+        <scene sceneID="EbZ-ch-GHi">
+            <objects>
+                <viewController id="pFm-bQ-Hzf" customClass="CharacterDetailVC" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OGX-15-uJt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scZ-TH-iP4">
+                                <rect key="frame" x="16" y="38" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dismissModul:" destination="pFm-bQ-Hzf" eventType="touchUpInside" id="jEl-06-PQO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dWK-sG-LXB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5YO-Mp-gNl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="215"/>
+        </scene>
+        <!--Episodes-->
         <scene sceneID="Qph-Ff-lUX">
             <objects>
-                <viewController id="R0R-Wp-R54" sceneMemberID="viewController">
+                <viewController id="R0R-Wp-R54" customClass="EpisodesViewController" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s9P-dq-E9k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EFu-hT-O9N">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episodeCell" rowHeight="348" id="F70-Qs-cUm" customClass="episodeCell" customModule="RickAndMorty" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="348"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F70-Qs-cUm" id="JTD-xS-jn6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="347.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nnh-al-Sgf">
+                                                    <rect key="frame" x="67" y="49" width="240" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nal-HO-dcY">
+                                                    <rect key="frame" x="166" y="193" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="epName" destination="nal-HO-dcY" id="zZr-U7-Qbc"/>
+                                            <segue destination="1yf-wg-8Rk" kind="presentation" trigger="accessoryAction" id="guw-MC-1e0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EFu-hT-O9N" firstAttribute="top" secondItem="JN3-ez-PC5" secondAttribute="top" id="2bz-Zl-l8V"/>
+                            <constraint firstItem="JN3-ez-PC5" firstAttribute="trailing" secondItem="EFu-hT-O9N" secondAttribute="trailing" id="5Es-kp-yeo"/>
+                            <constraint firstItem="EFu-hT-O9N" firstAttribute="leading" secondItem="JN3-ez-PC5" secondAttribute="leading" id="8du-7u-843"/>
+                            <constraint firstItem="JN3-ez-PC5" firstAttribute="bottom" secondItem="EFu-hT-O9N" secondAttribute="bottom" id="eTA-Zk-y1m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="JN3-ez-PC5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="sJy-Oo-ziE"/>
+                    <tabBarItem key="tabBarItem" title="Episodes" id="sJy-Oo-ziE"/>
+                    <connections>
+                        <outlet property="epTableView" destination="EFu-hT-O9N" id="r0x-P8-OeU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x0B-w7-f4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="-525"/>
+            <point key="canvasLocation" x="797.60000000000002" y="-577.06146926536735"/>
+        </scene>
+        <!--Episode DetailVC-->
+        <scene sceneID="Bgo-G9-0MF">
+            <objects>
+                <viewController id="1yf-wg-8Rk" customClass="EpisodeDetailVC" customModule="RickAndMorty" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yjO-gi-gH0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8W-g8-Kkc">
+                                <rect key="frame" x="16" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="DismissModul:" destination="1yf-wg-8Rk" eventType="touchUpInside" id="CL3-W4-JUO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zBV-N9-B0I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sG-ya-jvG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="-577"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="G0Q-A1-j4a">
