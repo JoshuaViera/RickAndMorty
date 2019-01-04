@@ -35,6 +35,15 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? CharacterDetailVC else {
+            fatalError("indexPath, detailVC nil")
+        }
+        let character = rickAndMortyCharacters[indexPath.row]
+        detailVC.character = character
+        
+    }
 }
 
 extension ViewController : UITableViewDataSource {

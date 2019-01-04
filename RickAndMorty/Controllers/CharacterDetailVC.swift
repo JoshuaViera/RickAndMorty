@@ -10,14 +10,24 @@ import UIKit
 
 class CharacterDetailVC: UIViewController {
 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var id: UILabel!
+    @IBOutlet weak var species: UILabel!
+    
+    
+    public var character: RickAndMortyChar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateLabels()
     }
     
+    func updateLabels() {
+        name.text = "\(character.name)"
+        id.text = "ID: \(character.id)"
+        species.text = "Species: \(character.species)"
+    }
     @IBAction func dismissModul(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
