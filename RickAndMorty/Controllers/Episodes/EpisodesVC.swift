@@ -57,7 +57,12 @@ extension EpisodesVC : UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as? EpisodeCell else {fatalError("yer")}
-        cell.name.text = episodes[indexPath.row].name
+//                cell.photo.image =
+        
+        let episodeToSet = episodes[indexPath.row]
+        cell.name.text = episodeToSet.name
+        cell.episode.text = episodeToSet.episode
+        cell.air_date.text = episodeToSet.air_date
         return cell
     }
 }

@@ -14,6 +14,8 @@ class EpisodeCell: UITableViewCell {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var episode: UILabel!
     @IBOutlet weak var air_date: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

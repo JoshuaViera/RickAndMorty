@@ -14,8 +14,10 @@ class CharacterDetailVC: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var species: UILabel!
-    
-    
+    @IBOutlet weak var status: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var origin: UILabel!
+    @IBOutlet weak var location: UILabel!
     public var character: RickAndMortyChar!
     
     override func viewDidLoad() {
@@ -25,8 +27,25 @@ class CharacterDetailVC: UIViewController {
     
     func updateLabels() {
         title = character.name
+        name.text = "Name: \(character.name)"
         id.text = "ID: \(character.id)"
         species.text = "Species: \(character.species)"
+        status.text = "Status: \(character.status)"
+        origin.text = "Origin: \(character.origin.name)"
+        
+        location.text = """
+        Currently Located: \(character.location.name)
+        """
+        ImageHelper.shared.fetchImage(urlString: character.image) { (image, error) in
+            
+            guard let image = image else {return}
+            DispatchQueue.main.async {
+                self.photo.image = image
+            }
+            
+        }
+        
+    
     }
     @IBAction func dismissModul(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)

@@ -52,9 +52,20 @@ extension CharacterVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "rickAndMortyCell", for: indexPath)
-        cell.textLabel?.text = "Name:\(allCharacters[indexPath.row].name)"
-        cell.detailTextLabel?.text = "ID: \(allCharacters[indexPath.row].id)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
+        let characterToSet = allCharacters[indexPath.row]
+        
+        ImageHelper.shared.fetchImage(urlString: characterToSet.image) { (image, error) in
+            
+            guard let image = image else {return}
+            DispatchQueue.main.async {
+                cell.imageView?.image = image
+                cell.setNeedsLayout()
+            }
+            
+        }
+        
+        cell.textLabel?.text = "\(characterToSet.name)"
         return cell
     }
 }

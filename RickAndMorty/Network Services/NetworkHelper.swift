@@ -16,17 +16,15 @@ class NetworkHelper {
     
     static let manager = NetworkHelper()
     
-    func performDataTask(_ url: URL,_ completionHandler: @escaping  (Data) -> (Void), _ errorHandler: @escaping (Error) -> Void ) {
+    func performDataTask(_ url: URL,_ completionHandler: @escaping  (Data?, Error?) -> Void) {
         self.session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
-                guard let data = data else {return}
-                
-                if let error = error {
-                    errorHandler(error)
-                    return
-                }
-                completionHandler(data)
-            }
+            guard let response = response as? HTTPURLResponse else { print("No reponse")
+                return }
+            print(response.statusCode)
+            
+            guard let data = data else {return}
+            
+            completionHandler(data, error)
             }.resume()
     }
 }

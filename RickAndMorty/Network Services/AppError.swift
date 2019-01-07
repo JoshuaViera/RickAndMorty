@@ -15,6 +15,7 @@ public enum AppError: Error {
     case decodingError(Error)
     case badStatusCode(String)
     case badMimeType(String)
+    case badImageData
     
     public func errorMessage() -> String {
         switch self {
@@ -30,6 +31,8 @@ public enum AppError: Error {
             return "bad status code: \(message)"
         case .badMimeType(let mimeType):
             return "bad mime type: \(mimeType)"
+        case .badImageData:
+            return "bad image data"
         }
     }
 }

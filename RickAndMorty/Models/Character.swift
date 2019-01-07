@@ -7,7 +7,6 @@
 //
 
 import Foundation
-
 struct ResultsWrapper : Codable {
     var results: [RickAndMortyChar]
 }
@@ -18,4 +17,13 @@ struct RickAndMortyChar : Codable {
     var status: String
     var species: String
     var image: String
+    var origin: OriginWrapper
+    var location: LocationWrapper
+}
+
+struct OriginWrapper : Codable {
+    var name: String    
+}
+struct LocationWrapper : Codable {
+    var name: String
 }
