@@ -1,17 +1,15 @@
 //
-//  episodeCell.swift
+//  CharacterCell.swift
 //  RickAndMorty
 //
-//  Created by Joshua Viera on 1/3/19.
+//  Created by Joshua Viera on 1/7/19.
 //  Copyright © 2019 Joshua Viera. All rights reserved.
 //
 
 import UIKit
 
-class episodeCell: UITableViewCell {
+class CharacterCell: UITableViewCell {
 
-    @IBOutlet weak var epName: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

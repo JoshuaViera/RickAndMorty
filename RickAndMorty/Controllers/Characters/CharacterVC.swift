@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CharacterVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private var rickAndMortyCharacters = [RickAndMortyChar](){
+    private var allCharacters = [RickAndMortyChar](){
         didSet{
             self.tableView.reloadData()
         }
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
         RickAndMortyApiManager.manager.getCharacters { (error, characters) in
             if let characters = characters {
                 DispatchQueue.main.async {
-                    self.rickAndMortyCharacters = characters
+                    self.allCharacters = characters
                 }
             } else if let error = error {
                 print(error)
@@ -40,21 +40,21 @@ class ViewController: UIViewController {
         guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? CharacterDetailVC else {
             fatalError("indexPath, detailVC nil")
         }
-        let character = rickAndMortyCharacters[indexPath.row]
+        let character = allCharacters[indexPath.row]
         detailVC.character = character
         
     }
 }
 
-extension ViewController : UITableViewDataSource {
+extension CharacterVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rickAndMortyCharacters.count
+        return allCharacters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "rickAndMortyCell", for: indexPath)
-        cell.textLabel?.text = rickAndMortyCharacters[indexPath.row].name
-        cell.detailTextLabel?.text = "ID: \(rickAndMortyCharacters[indexPath.row].id)"
+        cell.textLabel?.text = "Name:\(allCharacters[indexPath.row].name)"
+        cell.detailTextLabel?.text = "ID: \(allCharacters[indexPath.row].id)"
         return cell
     }
 }

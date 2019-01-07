@@ -15,7 +15,7 @@ class RickAndMortyApiManager {
     static let manager = RickAndMortyApiManager()
     
     func getCharacters(completionHandler: @escaping (Error?, [RickAndMortyChar]? ) -> Void) {
-        let urlString = "https://rickandmortyapi.com/api/character/"
+        let urlString = "https://rickandmortyapi.com/api/\(Endpoint.character)"
         guard let url = URL(string: urlString) else {
             completionHandler("bad url: \(urlString)" as? Error, nil)
             return
@@ -37,10 +37,30 @@ class RickAndMortyApiManager {
                 }
             }
         }.resume()
-//        let completion: (Data) -> (Void) = {(data: Data) in
+
         }
-//        NetworkHelper.manager.performDataTask(url, completion,  )
+    
+    func getEpisodes(completionHandler: @escaping (Error?, [RickAndMortyEp]? ) -> Void) {
+        let urlString = "https://rickandmortyapi.com/api/\(Endpoint.episode)"
+        guard let url = URL(string: urlString) else {
+            completionHandler("bad url: \(urlString)" as? Error, nil)
+            return
+        }
+        URLSession.shared.dataTask(with: url){(data, response, error) in
+            if let response = response {
+                print("response code is \(response)")
+            }
+            if let error = error {
+                completionHandler(error, nil)
+            } else if let data = data {
+                do {
+                    let results = try JSONDecoder().decode(Results.self, from: data)
+                    let episodes = results.results
+                    completionHandler(nil, episodes)
+                }catch {
+                    completionHandler(error, nil)
+                }
+            }
+            }.resume()
     }
-
-
-
+}

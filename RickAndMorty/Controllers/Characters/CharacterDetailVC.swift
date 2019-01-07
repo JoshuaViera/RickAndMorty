@@ -10,7 +10,8 @@ import UIKit
 
 class CharacterDetailVC: UIViewController {
 
-    @IBOutlet weak var name: UILabel!
+
+    @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var species: UILabel!
     
@@ -23,7 +24,7 @@ class CharacterDetailVC: UIViewController {
     }
     
     func updateLabels() {
-        name.text = "\(character.name)"
+        title = character.name
         id.text = "ID: \(character.id)"
         species.text = "Species: \(character.species)"
     }
