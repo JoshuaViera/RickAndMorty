@@ -20,7 +20,7 @@ class NetworkHelper {
         self.session.dataTask(with: url) { (data, response, error) in
             guard let response = response as? HTTPURLResponse else { print("No reponse")
                 return }
-            print(response.statusCode)
+//            print(response.statusCode)
             
             guard let data = data else {return}
             

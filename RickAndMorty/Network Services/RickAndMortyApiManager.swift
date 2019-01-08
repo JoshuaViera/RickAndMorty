@@ -20,9 +20,9 @@ class RickAndMortyApiManager {
             completionHandler("bad url: \(urlString)" as? Error, nil)
             return
         }
-        URLSession.shared.dataTask(with: url){(data, response, error) in
+        NetworkHelper.manager.session.dataTask(with: url){(data, response, error) in
             if let response = response {
-                print("response code is \(response)")
+//                print("response code is \(response)")
             }
             if let error = error {
                 completionHandler(error, nil)
@@ -46,9 +46,9 @@ class RickAndMortyApiManager {
             completionHandler("bad url: \(urlString)" as? Error, nil)
             return
         }
-        URLSession.shared.dataTask(with: url){(data, response, error) in
+        NetworkHelper.manager.session.dataTask(with: url){(data, response, error) in
             if let response = response {
-                print("response code is \(response)")
+//                print("response code is \(response)")
             }
             if let error = error {
                 completionHandler(error, nil)
@@ -63,4 +63,30 @@ class RickAndMortyApiManager {
             }
             }.resume()
     }
+    
+//    func getPhotos(completionHandler: @escaping (Error?, [RickAndMortyEp]? ) -> Void) {
+//        let urlString = "http://www.theodoregray.com/periodictable/Tiles/\(element.number)/s7.JPG"
+//        guard let url = URL(string: urlString) else {
+//            completionHandler("bad url: \(urlString)" as? Error, nil)
+//            return
+//        }
+//        NetworkHelper.manager.session.dataTask(with: url){(data, response, error) in
+//            if let response = response {
+//                //                print("response code is \(response)")
+//            }
+//            if let error = error {
+//                completionHandler(error, nil)
+//            } else if let data = data {
+//                do {
+//                    let results = try JSONDecoder().decode(Results.self, from: data)
+//                    let episodes = results.results
+//                    completionHandler(nil, episodes)
+//                }catch {
+//                    completionHandler(error, nil)
+//                }
+//            }
+//            }.resume()
+//    }
+    
+    
 }

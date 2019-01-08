@@ -13,7 +13,7 @@ class EpisodesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var episodes = [RickAndMortyEp](){
-        didSet{
+        didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -24,13 +24,19 @@ class EpisodesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.delegate = self
         loadData()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        guard let indexPath = tableView.indexPathForSelectedRow, let detailVC = segue.destination as? EpisodeDetailVC else {
+            fatalError("indexPath, detailVC nil")
+        }
+        let episode = episodes[indexPath.row]
+        detailVC.episode = episode
+        
     }
+    
 
 
     func loadData() {
@@ -44,25 +50,16 @@ class EpisodesVC: UIViewController {
     }
 }
 
-extension EpisodesVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250
-    }
-}
 extension EpisodesVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(episodes.count)
         return episodes.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath) as? EpisodeCell else {fatalError("yer")}
-//                cell.photo.image =
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
         let episodeToSet = episodes[indexPath.row]
-        cell.name.text = episodeToSet.name
-        cell.episode.text = episodeToSet.episode
-        cell.air_date.text = episodeToSet.air_date
+        cell.textLabel?.text = "\(episodeToSet.name)"
+        cell.detailTextLabel?.text = "\(episodeToSet.episode)"
         return cell
     }
 }

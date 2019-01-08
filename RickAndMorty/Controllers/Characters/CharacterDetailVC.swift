@@ -47,7 +47,4 @@ class CharacterDetailVC: UIViewController {
         
     
     }
-    @IBAction func dismissModul(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
 }

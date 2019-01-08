@@ -41,37 +41,8 @@ public final class ImageHelper {
             guard let image = UIImage(data: data) else { completionHandler(nil, AppError.badImageData)
                 return
             }
-            
             self.imageCache.setObject(image, forKey: NSString(string: urlString))
             completionHandler(image, nil)
-           
-            //            if let response = response {
-            //                // response.allHeaderFields dictionary contains useful header information such as Content-Type, Content-Length
-            //                // response also has the mimeType, such as image/jpeg, text/html, image/png
-            //                let mimeType = response.mimeType ?? "no mimeType found"
-            //                var isValidImage = false
-            //                switch mimeType {
-            //                case "image/jpeg":
-            //                    isValidImage = true
-            //                case "image/png":
-            //                    isValidImage = true
-            //                default:
-            //                    isValidImage = false
-            //                }
-            //                if !isValidImage {
-            //                    completionHandler(AppError.badMimeType(mimeType), nil)
-            //                    return
-            //                } else if let data = data {
-            //                    let image = UIImage(data: data)
-            //                    DispatchQueue.main.async {
-            //                        if let image = image {
-            //                            ImageHelper.shared.imageCache.setObject(image, forKey: urlString as NSString)
-            //                        }
-            //                        completionHandler(nil, image)
-            //                    }
-            //                }
-            //            }
-            //        }
         }
     }
 }

@@ -21,6 +21,7 @@ class CharacterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         loadData()
     }
     
@@ -46,26 +47,34 @@ class CharacterVC: UIViewController {
     }
 }
 
+extension CharacterVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120    }
+}
+
 extension CharacterVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allCharacters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell", for: indexPath)
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterCell" , for: indexPath) as? CharacterCell else {fatalError("Character Cell Not Valid")}
         let characterToSet = allCharacters[indexPath.row]
         
         ImageHelper.shared.fetchImage(urlString: characterToSet.image) { (image, error) in
             
             guard let image = image else {return}
             DispatchQueue.main.async {
-                cell.imageView?.image = image
+                cell.photo.image = image
                 cell.setNeedsLayout()
             }
-            
         }
-        
-        cell.textLabel?.text = "\(characterToSet.name)"
+        cell.name.text = "\(characterToSet.name)"
+        cell.location.text = """
+        Location:
+        \(characterToSet.location.name)
+        """
         return cell
     }
 }

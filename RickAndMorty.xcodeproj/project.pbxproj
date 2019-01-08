@@ -22,7 +22,6 @@
 		61E8BC6D21DFA43200DACBED /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E8BC6C21DFA43200DACBED /* Endpoint.swift */; };
 		61F86CFC21E2A3D800A5C290 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86CFB21E2A3D800A5C290 /* Episode.swift */; };
 		61F86CFE21E2A3F500A5C290 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86CFD21E2A3F500A5C290 /* Character.swift */; };
-		61F86D2021E2B3AE00A5C290 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86D1F21E2B3AE00A5C290 /* EpisodeCell.swift */; };
 		61F86D2321E2B48900A5C290 /* EpisodesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F86D2221E2B48900A5C290 /* EpisodesVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 		61E8BC6C21DFA43200DACBED /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		61F86CFB21E2A3D800A5C290 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		61F86CFD21E2A3F500A5C290 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		61F86D1F21E2B3AE00A5C290 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
 		61F86D2221E2B48900A5C290 /* EpisodesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,14 +124,6 @@
 			path = Episodes;
 			sourceTree = "<group>";
 		};
-		613EC51921E3C55700B1F9E2 /* Episodes */ = {
-			isa = PBXGroup;
-			children = (
-				61F86D1F21E2B3AE00A5C290 /* EpisodeCell.swift */,
-			);
-			path = Episodes;
-			sourceTree = "<group>";
-		};
 		613EC51C21E3C57A00B1F9E2 /* CharacterCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				613EC51C21E3C57A00B1F9E2 /* CharacterCell */,
-				613EC51921E3C55700B1F9E2 /* Episodes */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -251,7 +240,6 @@
 				61F86CFE21E2A3F500A5C290 /* Character.swift in Sources */,
 				613EC52021E3C70E00B1F9E2 /* AppError.swift in Sources */,
 				61C12DA921DE42E200709102 /* NetworkHelper.swift in Sources */,
-				61F86D2021E2B3AE00A5C290 /* EpisodeCell.swift in Sources */,
 				613EC51E21E3C6C600B1F9E2 /* ImageHelper.swift in Sources */,
 				61E8BC6D21DFA43200DACBED /* Endpoint.swift in Sources */,
 				6103091921DE85E000018D20 /* EpisodeDetailVC.swift in Sources */,

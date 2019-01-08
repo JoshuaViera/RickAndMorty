@@ -12,7 +12,4 @@ enum Endpoint {
     case character
     case episode
 }
-enum charENDPOINTS{
-    case page1
-    case page2
-}
+
